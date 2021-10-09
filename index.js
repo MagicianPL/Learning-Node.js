@@ -1,12 +1,11 @@
-/*const add = require("./adding");
+const http = require("http");
 
-console.log(add(5, 5));*/
+const server = http.createServer((req, resp) => {
+  console.log("Ktoś wszedł na server");
+  console.log(req.headers);
+  resp.end("Hello Node!");
+});
 
-//console.log(process.argv.slice(2));
-
-/*const notifications = require("./notifications.js");
-notifications.success("Udało się");*/
-
-import notifications from "./notificationsEs.js";
-
-notifications.success("Udało się, hurra!");
+server.listen(3000, () => {
+  console.log("Nasłuchuję na porcie 3000");
+});
